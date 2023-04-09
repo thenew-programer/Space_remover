@@ -10,7 +10,7 @@ $(BINARY): $(OBJECT)
 	$(CC) -o $@ $^
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $^
+	$(CC) $(CFLAGS) -c -o $@ $^ -I../include
 
 clear:
 	rm -rf *.o
