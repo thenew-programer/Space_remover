@@ -1,7 +1,7 @@
 CC = gcc
-CFLAGS = -Wall -Wextra
+CFLAGS = -Wall -Wextra -pedantic -Werror -c
 OBJECT = *.o
-CFILES = *.c
+SOURCE = (wildcart src/*.c)
 BINARY = Space-Remover
 
 all: $(BINARY)
@@ -9,8 +9,8 @@ all: $(BINARY)
 $(BINARY): $(OBJECT)
 	$(CC) -o $@ $^
 
-%.o: %.c
-	$(CC) $(CFLAGS) -c -o $@ $^ -I../include
+$(OBJECT): $(SOURCE)
+	$(CC) $(CFLAGS)  $(SOURCE)  -I./include
 
 clear:
 	rm -rf *.o
